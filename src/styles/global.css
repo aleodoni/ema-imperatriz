@@ -8,3 +8,13 @@
     @apply xs:text-2xl md:text-3xl transition duration-300 ease-in-out hover:text-white cursor-pointer;
   }
 }
+
+@layer base {
+  h3 {
+    @apply text-3xl text-white;
+  }
+
+  p {
+    @apply text-white leading-6;
+  }
+}

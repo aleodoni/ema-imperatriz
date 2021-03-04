@@ -1,22 +1,13 @@
-import { NextPage, GetStaticProps } from 'next';
+import { NextPage, GetStaticProps, GetStaticPropsContext } from 'next';
 
 import Layout from '@/components/Layout';
-import { client } from '@/util/api';
+import { PrincipalType, getMainInfo } from '@/util/helper';
 
-type PrincipalType = {
-  title: {
-    line1: string;
-    line2: string;
-  };
-  subtitle: string;
-  background: string;
-  youtube: string;
-  facebook: string;
-  twitter: string;
-  instagram: string;
+type PropsType = {
+  principal: PrincipalType;
 };
 
-const IndexPage: NextPage<PrincipalType> = (principal: PrincipalType) => {
+const IndexPage: NextPage<PropsType> = ({ principal }) => {
   const style = {
     backgroundImage: `url(${principal.background})`,
   };
@@ -27,6 +18,7 @@ const IndexPage: NextPage<PrincipalType> = (principal: PrincipalType) => {
       facebook={principal.facebook}
       twitter={principal.twitter}
       instagram={principal.instagram}
+      endereco={principal.endereco}
     >
       <div className="flex w-full flex-col items-center">
         <div className="flex flex-col w-auto ">
@@ -47,33 +39,12 @@ const IndexPage: NextPage<PrincipalType> = (principal: PrincipalType) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const info = await client().getSingle('principal', {});
-
-  const title = info.data.titulo[0].text;
-  const titleArray = title.split(' ');
-
-  const subtitle = info.data.subtitulo[0].text;
-
-  const background = info.data.background.url;
-
-  const youtube = info.data.youtube.url;
-  const facebook = info.data.facebook.url;
-  const twitter = info.data.twitter.url;
-  const instagram = info.data.instagram.url;
+export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+  const infoPrincipal = await getMainInfo(context);
 
   return {
     props: {
-      title: {
-        line1: titleArray[0],
-        line2: titleArray[1],
-      },
-      subtitle,
-      background,
-      youtube,
-      facebook,
-      twitter,
-      instagram,
+      principal: infoPrincipal,
     },
     revalidate: 60,
   };
