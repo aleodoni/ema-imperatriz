@@ -7,6 +7,7 @@ export type PrincipalType = {
     line1: string;
     line2: string;
   };
+  intro: string;
   subtitle: string;
   background: string;
   youtube: string;
@@ -31,6 +32,7 @@ export async function getMainInfo(context: GetStaticPropsContext): Promise<Princ
   const twitter = info.data.twitter.url;
   const instagram = info.data.instagram.url;
   const endereco = info.data.endereco[0].text;
+  const intro = info.data.intro;
 
   return {
     title: {
@@ -44,5 +46,6 @@ export async function getMainInfo(context: GetStaticPropsContext): Promise<Princ
     twitter,
     instagram,
     endereco,
+    intro,
   };
 }

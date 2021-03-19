@@ -1,4 +1,6 @@
 import { NextPage, GetStaticProps, GetStaticPropsContext } from 'next';
+import ReactHtmlParser from 'react-html-parser';
+import PrismicDOM from 'prismic-dom';
 
 import Layout from '@/components/Layout';
 import { PrincipalType, getMainInfo } from '@/util/helper';
@@ -20,8 +22,8 @@ const IndexPage: NextPage<PropsType> = ({ principal }) => {
       instagram={principal.instagram}
       endereco={principal.endereco}
     >
-      <div className="flex w-full flex-col items-center">
-        <div className="flex flex-col w-auto ">
+      <div className="flex w-full min-h-screen flex-col items-center">
+        <div className="flex flex-col w-auto">
           <div className="flex flex-col px-4 xs:text-5xl sm:text-8xl font-bold text-gray-50">
             <span className="py-4">{principal.title.line1}</span>
             <span>{principal.title.line2}</span>
@@ -30,10 +32,12 @@ const IndexPage: NextPage<PropsType> = ({ principal }) => {
             <span className="py-4">{principal.subtitle}</span>
           </div>
         </div>
-        <span
-          className="flex-grow bg-cover bg-center w-full max-h-80 opacity-40 m-5"
-          style={style}
-        ></span>
+        <span className="flex-grow bg-cover bg-center w-full h-64 opacity-40 m-10" style={style}>
+          &nbsp;
+        </span>
+        <span className="flex-grow bg-cover bg-center w-full opacity-70 space-y-12 text-xl p-10">
+          {ReactHtmlParser(PrismicDOM.RichText.asHtml(principal.intro))}
+        </span>
       </div>
     </Layout>
   );
@@ -41,6 +45,8 @@ const IndexPage: NextPage<PropsType> = ({ principal }) => {
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const infoPrincipal = await getMainInfo(context);
+
+  console.log(infoPrincipal);
 
   return {
     props: {

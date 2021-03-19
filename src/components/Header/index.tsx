@@ -18,7 +18,6 @@ const Header: React.FC<Props> = ({ youtube, facebook, twitter, instagram }) => {
       w-full
       h-20
       px-4
-      overflow-hidden
       bg-gray-800"
       >
         <span className="text-gray-200 pl-4">
