@@ -16,7 +16,6 @@ const Layout: React.FC<Props> = ({ children, youtube, facebook, twitter, instagr
       flex
       flex-grow-0
       max-w-5xl
-      overflow-y-visible
       mx-auto"
     >
       <div
@@ -25,10 +24,11 @@ const Layout: React.FC<Props> = ({ children, youtube, facebook, twitter, instagr
         flex
         flex-col
         flex-grow
+        min-h-screen
         items-center"
       >
         <Header youtube={youtube} facebook={facebook} twitter={twitter} instagram={instagram} />
-        <div className="flex flex-col w-full items-center">{children}</div>
+        <div className="flex flex-col w-full items-center h-full">{children}</div>
         <Footer endereco={endereco} />
       </div>
     </div>
