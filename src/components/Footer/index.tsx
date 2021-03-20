@@ -13,7 +13,7 @@ const Footer: React.FC<Props> = ({ endereco }) => {
       h-20
       px-4"
     >
-      <span className="flex items-center justify-center w-full h-10 text-xs text-gray-400 pl-4 ">
+      <span className="flex items-center justify-center w-full h-10 md:text-base xs:text-xs text-gray-400 pl-4 ">
         {endereco}
       </span>
     </div>

@@ -20,15 +20,11 @@ const Layout: React.FC<Props> = ({ children, youtube, facebook, twitter, instagr
     >
       <div
         className="
-        mx-auto
         flex
-        flex-col
-        flex-grow
-        min-h-screen
-        items-center"
+        flex-col"
       >
         <Header youtube={youtube} facebook={facebook} twitter={twitter} instagram={instagram} />
-        <div className="flex flex-col w-full items-center h-full">{children}</div>
+        <div className="flex flex-col h-full">{children}</div>
         <Footer endereco={endereco} />
       </div>
     </div>

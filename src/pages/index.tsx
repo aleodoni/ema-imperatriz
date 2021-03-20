@@ -35,7 +35,7 @@ const IndexPage: NextPage<PropsType> = ({ principal }) => {
         <span className="flex-grow bg-cover bg-center w-full h-64 opacity-40 m-10" style={style}>
           &nbsp;
         </span>
-        <span className="flex-grow bg-cover bg-center w-full opacity-70 space-y-12 text-xl p-10">
+        <span className="flex-grow bg-cover bg-center w-full opacity-70 space-y-12 xs:text-xl md:text-3xl p-10 font-bold">
           {ReactHtmlParser(PrismicDOM.RichText.asHtml(principal.intro))}
         </span>
       </div>
@@ -45,8 +45,6 @@ const IndexPage: NextPage<PropsType> = ({ principal }) => {
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const infoPrincipal = await getMainInfo(context);
-
-  console.log(infoPrincipal);
 
   return {
     props: {

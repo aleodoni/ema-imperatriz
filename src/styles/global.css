@@ -15,6 +15,6 @@
   }
 
   p {
-    @apply text-white leading-6;
+    @apply text-white;
   }
 }
