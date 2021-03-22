@@ -44,7 +44,7 @@ const AtendimentoPage: NextPage<AtendimentoType> = ({ principal, atendimento }) 
       endereco={principal.endereco}
     >
       <div className="flex flex-col">
-        <div className="flex flex-col mt-10">
+        <div className="flex flex-col mt-20 bg-gray-700 p-10 rounded-lg">
           <div className="flex px-4 xs:text-4xl sm:text-7xl font-bold text-gray-50">
             Atendimento presencial
           </div>
@@ -55,7 +55,7 @@ const AtendimentoPage: NextPage<AtendimentoType> = ({ principal, atendimento }) 
           </div>
         </div>
 
-        <div className="flex xs:flex-col md:flex-row md:items-center mt-20">
+        <div className="flex xs:flex-col md:flex-row md:items-center p-10">
           <div className="flex px-4 xs:text-4xl sm:text-7xl font-bold text-gray-50">
             Horário de atentimento
           </div>
@@ -66,7 +66,7 @@ const AtendimentoPage: NextPage<AtendimentoType> = ({ principal, atendimento }) 
           </div>
         </div>
 
-        <div className="flex w-auto xs:flex-col md:flex-row md:items-center mt-20">
+        <div className="flex w-auto xs:flex-col md:flex-row md:items-center bg-gray-700 p-10 rounded-lg">
           <div className="flex px-4 xs:text-4xl sm:text-7xl font-bold text-gray-50">
             Agende sua consulta
           </div>
