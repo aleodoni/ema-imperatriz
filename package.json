@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@headlessui/react": "^0.3.1",
     "@prismicio/client": "^4.0.0",
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
@@ -28,6 +29,7 @@
     "@babel/core": "^7.13.1",
     "@types/jest": "^26.0.20",
     "@types/prismic-dom": "^2.1.1",
+    "@types/react-burger-menu": "^2.6.2",
     "@types/react-html-parser": "^2.0.1",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
